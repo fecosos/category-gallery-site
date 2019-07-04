@@ -1,26 +1,55 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { testAction } from '../store/actions/testAction';
-import { getTestState } from '../store/selectors/test';
+const GalleryItem = () => (
+  <div className="gallery-image-wrapper">
+    <img className="gallery-image-item" src='https://dummyimage.com/330x375.jpg?text=img-item' alt='Gallery item' />
+  </div>
+)
 
 function App({testAction, testState}) {
-  const clickHandler = () => testAction(Math.random() + ' test');
 
   return (
     <div className="App">
-      <h1>{testState}</h1>
-      <button onClick={clickHandler}>Click Me</button>
+      <aside>
+        <div className="logo-wrapper">
+          <button>
+            <img className="logo-img" src='https://dummyimage.com/75x75.jpg?text=R' alt='Logo' />
+          </button>
+        </div>
+        <nav>
+          <button>concesionarias</button>
+          <button>viviendas</button>
+          <button>bares</button>
+          <button>el estudio</button>
+        </nav>
+        <div className="instagram-wrapper">
+          <a href="https://instagram.com" rel="noopener noreferrer" target="_blank" >
+            @instagram
+          </a>
+        </div>
+      </aside>
+      <main>
+        <div className="Gallery gallery-items">
+          <GalleryItem />
+          <GalleryItem />
+          <GalleryItem />
+          <GalleryItem />
+          <GalleryItem />
+          <GalleryItem />
+          <GalleryItem />
+          <GalleryItem />
+          <GalleryItem />
+        </div>
+      </main>
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-  testState: getTestState(state)
 });
 
 const mapDispatchToProps = {
-  testAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
