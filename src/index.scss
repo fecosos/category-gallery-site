@@ -1,5 +1,9 @@
 *, *:before, *:after {
   box-sizing: border-box;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 html {
@@ -50,16 +54,6 @@ main {
   background-color: rgba(red, 0.4);
 }
 
-.Gallery {
-  display: flex;
-  flex-wrap: wrap;
-
-  .gallery-image-wrapper {
-    width: 33.333%;
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
+figure {
+  display: block;
 }

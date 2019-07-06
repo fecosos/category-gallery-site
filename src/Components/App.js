@@ -1,21 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-const GalleryItem = () => (
-  <div className="gallery-image-wrapper">
-    <img className="gallery-image-item" src='https://dummyimage.com/330x375.jpg?text=img-item' alt='Gallery item' />
-  </div>
-)
+import Gallery from './Gallery/';
 
-function App({testAction, testState}) {
+function App({testAction, testState, galleryItems}) {
   const mainEl = useRef(null);
   const [asideWidth, setAsideWidth] = useState(null);
 
   useEffect(() => {
-    console.log('mainEl', mainEl);
     const width = mainEl.current.clientWidth / 3;
     setAsideWidth(width);
-  }, [asideWidth]);
+  }, [asideWidth, testAction]);
 
   window.addEventListener('resize', event => {
     console.log({event});
@@ -44,17 +39,7 @@ function App({testAction, testState}) {
         </div>
       </aside>
       <main ref={mainEl} >
-        <div className="Gallery gallery-items">
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-        </div>
+        <Gallery />
       </main>
     </div>
   );
