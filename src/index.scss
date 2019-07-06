@@ -34,9 +34,9 @@ aside {
   height: calc(100vh - 100px);
   background-color: rgba(pink, 0.4);
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  position: fixed;
 
   nav {
     display: flex;
@@ -46,6 +46,7 @@ aside {
 
 main {
   flex: 3;
+  margin-left: 25%;
   background-color: rgba(red, 0.4);
 }
 

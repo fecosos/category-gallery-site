@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 const GalleryItem = () => (
@@ -8,10 +8,24 @@ const GalleryItem = () => (
 )
 
 function App({testAction, testState}) {
+  const mainEl = useRef(null);
+  const [asideWidth, setAsideWidth] = useState(null);
+
+  useEffect(() => {
+    console.log('mainEl', mainEl);
+    const width = mainEl.current.clientWidth / 3;
+    setAsideWidth(width);
+  }, [asideWidth]);
+
+  window.addEventListener('resize', event => {
+    console.log({event});
+    const width = mainEl.current.clientWidth / 3;
+    setAsideWidth(width);
+  });
 
   return (
-    <div className="App">
-      <aside>
+    <div className="App" >
+      <aside style={{width: asideWidth}}>
         <div className="logo-wrapper">
           <button>
             <img className="logo-img" src='https://dummyimage.com/75x75.jpg?text=R' alt='Logo' />
@@ -29,7 +43,7 @@ function App({testAction, testState}) {
           </a>
         </div>
       </aside>
-      <main>
+      <main ref={mainEl} >
         <div className="Gallery gallery-items">
           <GalleryItem />
           <GalleryItem />
