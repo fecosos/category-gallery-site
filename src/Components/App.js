@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import Gallery from './Gallery/';
+import Gallery from './Gallery';
+import Navigation from './Navigation';
 
 function App({testAction, testState, galleryItems}) {
   const mainEl = useRef(null);
@@ -26,12 +27,7 @@ function App({testAction, testState, galleryItems}) {
             <img className="logo-img" src='https://dummyimage.com/75x75.jpg?text=R' alt='Logo' />
           </button>
         </div>
-        <nav>
-          <button>concesionarias</button>
-          <button>viviendas</button>
-          <button>bares</button>
-          <button>el estudio</button>
-        </nav>
+        <Navigation />
         <div className="instagram-wrapper">
           <a href="https://instagram.com" rel="noopener noreferrer" target="_blank" >
             @instagram
