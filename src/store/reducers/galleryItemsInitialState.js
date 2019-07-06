@@ -1,8 +1,13 @@
+import { CATEGORY_CONCESIONARIAS } from '../constants';
+import { CATEGORY_VIVIENDAS } from '../constants';
+import { CATEGORY_BARES } from '../constants';
+
 const nbsp = '\u00a0';
 
 export const GALLERY_ITEMS_INITIAL_STATE = {
   0: {
     title: 'TITLE 0',
+    category: CATEGORY_CONCESIONARIAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-0',
     year: 2013,
     galleryImages: [
@@ -23,6 +28,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   1: {
     title: 'TITLE 1',
+    category: CATEGORY_VIVIENDAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-1',
     year: 2022,
     galleryImages: [
@@ -43,6 +49,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   2: {
     title: 'TITLE 2',
+    category: CATEGORY_BARES,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-2',
     year: 1322,
     galleryImages: [
@@ -63,6 +70,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   3: {
     title: 'TITLE 3',
+    category: CATEGORY_CONCESIONARIAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-3',
     year: 2014,
     galleryImages: [
@@ -83,6 +91,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   }
   , 4: {
     title: 'TITLE 4',
+    category: CATEGORY_VIVIENDAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-4',
     year: 1933,
     galleryImages: [
@@ -103,6 +112,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   5: {
     title: 'TITLE 5',
+    category: CATEGORY_BARES,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-5',
     year: 1999,
     galleryImages: [
@@ -123,6 +133,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   6: {
     title: 'TITLE 6',
+    category: CATEGORY_VIVIENDAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-6',
     year: 2001,
     galleryImages: [
@@ -143,6 +154,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   7: {
     title: 'TITLE 7',
+    category: CATEGORY_CONCESIONARIAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-7',
     year: 2312,
     galleryImages: [
@@ -163,6 +175,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   8: {
     title: 'TITLE 8',
+    category: CATEGORY_VIVIENDAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-8',
     year: 2013,
     galleryImages: [
@@ -183,6 +196,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   9: {
     title: 'TITLE 9',
+    category: CATEGORY_BARES,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-9',
     year: 2018,
     galleryImages: [
@@ -203,6 +217,7 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
   },
   10: {
     title: 'TITLE 10',
+    category: CATEGORY_CONCESIONARIAS,
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-10',
     year: 1942,
     galleryImages: [
