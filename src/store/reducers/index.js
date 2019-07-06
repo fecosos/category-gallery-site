@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import testReducer from './test';
+import galleryItems from './galleryItems';
 
 export default combineReducers({
-  test: testReducer
+  galleryItems
 });
