@@ -4,7 +4,6 @@ import { getGalleryIntros } from '../../store/selectors/gallery';
 import './Gallery.scss';
 
 const GalleryItem = (props) => {
-  console.log(props.items)
   const { id, title, url, year } = props.item;
 
   return (
