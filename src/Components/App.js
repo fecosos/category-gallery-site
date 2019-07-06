@@ -7,15 +7,14 @@ const GalleryItem = () => (
   </div>
 )
 
-function App({testAction, testState}) {
+function App({testAction, testState, galleryItems}) {
   const mainEl = useRef(null);
   const [asideWidth, setAsideWidth] = useState(null);
 
   useEffect(() => {
-    console.log('mainEl', mainEl);
     const width = mainEl.current.clientWidth / 3;
     setAsideWidth(width);
-  }, [asideWidth]);
+  }, [asideWidth, testAction]);
 
   window.addEventListener('resize', event => {
     console.log({event});
