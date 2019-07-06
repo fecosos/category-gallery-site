@@ -6,7 +6,7 @@ const GalleryItem = (props) => {
   const { id, title, url, year } = props.item;
 
   return (
-    <figure className="gallery-image-wrapper" id={id}>
+    <figure className="gallery-image-wrapper" id={id} onClick={() => alert('AAAAAAH!')}>
       <img className="gallery-image-item" src={url} alt={title} />
       <figcaption>
         <p>{title}</p>
