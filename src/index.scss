@@ -1,5 +1,9 @@
 *, *:before, *:after {
   box-sizing: border-box;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 html {
@@ -48,4 +52,8 @@ main {
   flex: 3;
   margin-left: 25%;
   background-color: rgba(red, 0.4);
+}
+
+figure {
+  display: block;
 }
