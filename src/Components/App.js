@@ -1,11 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-const GalleryItem = () => (
-  <div className="gallery-image-wrapper">
-    <img className="gallery-image-item" src='https://dummyimage.com/330x375.jpg?text=img-item' alt='Gallery item' />
-  </div>
-)
+import Gallery from './Gallery/';
 
 function App({testAction, testState}) {
   const mainEl = useRef(null);
@@ -44,17 +40,7 @@ function App({testAction, testState}) {
         </div>
       </aside>
       <main ref={mainEl} >
-        <div className="Gallery gallery-items">
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-          <GalleryItem />
-        </div>
+        <Gallery />
       </main>
     </div>
   );

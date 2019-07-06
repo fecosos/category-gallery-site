@@ -49,17 +49,3 @@ main {
   margin-left: 25%;
   background-color: rgba(red, 0.4);
 }
-
-.Gallery {
-  display: flex;
-  flex-wrap: wrap;
-
-  .gallery-image-wrapper {
-    width: 33.333%;
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
-}
