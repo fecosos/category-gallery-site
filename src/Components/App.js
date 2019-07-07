@@ -3,19 +3,43 @@ import { connect } from 'react-redux';
 
 import Gallery from './Gallery/';
 
+import './App.scss'
+
+
+function Slider(props) {
+  return (
+    <section className="Slider" style={{ left: props.left }} >
+      {props.children}
+    </section>  
+  );
+}
+
+
 function App({testAction, testState, galleryItems}) {
   const mainEl = useRef(null);
   const [asideWidth, setAsideWidth] = useState(null);
+  const [columnWidth, setColumnWidth] = useState(0);
 
   useEffect(() => {
-    const width = mainEl.current.clientWidth / 3;
-    setAsideWidth(width);
+    const columnWidth = mainEl.current.clientWidth / 3;
+    const { top, right, bottom, left} = mainEl.current.getBoundingClientRect();
+
+    const windowWidth = window.innerWidth;
+    
+    console.log({
+      top,
+      right,
+      bottom,
+      left,
+      client: mainEl.current.getBoundingClientRect(),
+      windowWidth
+    });
+    setAsideWidth(columnWidth);
+    setColumnWidth(columnWidth)
   }, [asideWidth, testAction]);
 
   window.addEventListener('resize', event => {
-    console.log({event});
-    const width = mainEl.current.clientWidth / 3;
-    setAsideWidth(width);
+    setAsideWidth(columnWidth);
   });
 
   return (
@@ -40,6 +64,9 @@ function App({testAction, testState, galleryItems}) {
       </aside>
       <main ref={mainEl} >
         <Gallery />
+        <Slider left={columnWidth}>
+          asd
+        </Slider>
       </main>
     </div>
   );
