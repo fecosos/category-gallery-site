@@ -29,12 +29,12 @@ main {
 
 
 .Slider {
-    position: absolute;
-    padding: 100px 25px;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: red;
-  }
+  transition: all 1s ease-in-out;
+  position: fixed;
+  padding: 100px 0px 100px 25px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(yellow, 0.4);
+}
 
