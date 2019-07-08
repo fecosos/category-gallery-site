@@ -1,51 +1,34 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { connect } from 'react-redux';
+import pipe from 'lodash/fp/pipe';
 
 import Gallery from './Gallery';
 import Navigation from './Navigation';
+import Slider from './Slider';
 
 import './App.scss'
 
 
-function Slider(props) {
-  return (
-    <section className="Slider" style={{ left: props.left }} >
-      {props.children}
-    </section>  
-  );
-}
-
-
-function App({testAction, testState, galleryItems}) {
+function App({testState, galleryItems}) {
   const mainEl = useRef(null);
-  const [asideWidth, setAsideWidth] = useState(null);
   const [columnWidth, setColumnWidth] = useState(0);
 
+  const getColumnWidthFromRef = ref => ref.current.clientWidth / 3;
+  const setColumnWidthFromRef = pipe(getColumnWidthFromRef, setColumnWidth);
+  const resizeHandler = useCallback(() => {
+    setColumnWidth(mainEl);
+  }, [])
+
   useEffect(() => {
-    const columnWidth = mainEl.current.clientWidth / 3;
-    const { top, right, bottom, left} = mainEl.current.getBoundingClientRect();
+    setColumnWidthFromRef(mainEl);
+    window.addEventListener('resize', resizeHandler);
 
-    const windowWidth = window.innerWidth;
-    
-    console.log({
-      top,
-      right,
-      bottom,
-      left,
-      client: mainEl.current.getBoundingClientRect(),
-      windowWidth
-    });
-    setAsideWidth(columnWidth);
-    setColumnWidth(columnWidth)
-  }, [asideWidth, testAction]);
-
-  window.addEventListener('resize', event => {
-    setAsideWidth(columnWidth);
-  });
+    return () => window.removeEventListener('resize', resizeHandler);
+  }, [resizeHandler, columnWidth, setColumnWidthFromRef]);
 
   return (
     <div className="App" >
-      <aside style={{width: asideWidth}}>
+      <aside style={{ width: columnWidth}}>
         <div className="logo-wrapper">
           <button>
             <img className="logo-img" src='https://dummyimage.com/75x75.jpg?text=R' alt='Logo' />
@@ -60,9 +43,7 @@ function App({testAction, testState, galleryItems}) {
       </aside>
       <main ref={mainEl} >
         <Gallery />
-        <Slider left={columnWidth}>
-          asd
-        </Slider>
+        <Slider columnWidth={columnWidth} />
       </main>
     </div>
   );
