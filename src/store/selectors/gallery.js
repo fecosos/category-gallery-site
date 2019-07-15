@@ -1,8 +1,10 @@
 import get from 'lodash/fp/get';
 import map from 'lodash/map';
 
+export const getGalleryItems = get('galleryItems');
+
 export const getGalleryIntros = (state) => {
-  const items = get('galleryItems')(state);
+  const items = getGalleryItems(state);
   
   return map(items, (item, index) => {
     const { title, year, introImage, category} = item;
@@ -13,6 +15,6 @@ export const getGalleryIntros = (state) => {
       year,
       category,
       url: introImage
-    }
+    };
   });
 };

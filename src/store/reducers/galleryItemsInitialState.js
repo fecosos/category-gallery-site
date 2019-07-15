@@ -11,8 +11,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-0',
     year: 2013,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=zero',
+      'https://dummyimage.com/375x333.jpg?text=zero'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -32,8 +32,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-1',
     year: 2022,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=one',
+      'https://dummyimage.com/330x375.jpg?text=one'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -53,8 +53,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-2',
     year: 1322,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-2',
+      'https://dummyimage.com/330x375.jpg?text=img-2'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -74,8 +74,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-3',
     year: 2014,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-3',
+      'https://dummyimage.com/330x375.jpg?text=img-3'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -95,8 +95,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-4',
     year: 1933,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-4',
+      'https://dummyimage.com/330x375.jpg?text=img-4'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -116,8 +116,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-5',
     year: 1999,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-5',
+      'https://dummyimage.com/330x375.jpg?text=img-5'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -137,8 +137,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-6',
     year: 2001,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-6',
+      'https://dummyimage.com/330x375.jpg?text=img-6'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -158,8 +158,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-7',
     year: 2312,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-7',
+      'https://dummyimage.com/330x375.jpg?text=img-7'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -179,8 +179,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-8',
     year: 2013,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-8',
+      'https://dummyimage.com/330x375.jpg?text=img-8'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -200,8 +200,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-9',
     year: 2018,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-9',
+      'https://dummyimage.com/330x375.jpg?text=img-9'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',
@@ -221,8 +221,8 @@ export const GALLERY_ITEMS_INITIAL_STATE = {
     introImage: 'https://dummyimage.com/330x375.jpg?text=img-10',
     year: 1942,
     galleryImages: [
-      'https://dummyimage.com/330x375.jpg?text=img-item',
-      'https://dummyimage.com/330x375.jpg?text=img-item'
+      'https://dummyimage.com/330x375.jpg?text=img-10',
+      'https://dummyimage.com/330x375.jpg?text=img-10'
     ],
     description: [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, vel.',

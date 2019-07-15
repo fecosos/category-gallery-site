@@ -5,7 +5,8 @@ export default function(state = {}, action = {}) {
     if(action.id) {
       return {
         ...state,
-        isOpen: true
+        isOpen: true,
+        id: action.id
       };
     }
     
