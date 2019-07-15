@@ -1,0 +1,14 @@
+.SwipeGalleryManager {
+  display: flex;
+  height: 100%;
+
+  .SwipeItem {
+    padding-right: 25px;
+    height: 70%;
+
+    img {
+      height: 100%; 
+      width: auto;
+    }
+  }
+}
