@@ -7,12 +7,12 @@ const GalleryItem = ({ item, onClick, selectedCategory }) => {
   const { id, title, url, year, category } = item;
   const isHidden = selectedCategory && selectedCategory !== category;
 
-  const style = { opacity: isHidden ?  '0' : '1'};
+  const imageOpacity = isHidden ? 'opacity-0' : 'opacity-1';
   
   const clickHandler = isHidden ? noop : onClick;
 
   return (
-    <figure className="gallery-image-wrapper" id={id} onClick={clickHandler} style={style} >
+    <figure className={`gallery-image-wrapper ${imageOpacity}`} id={id} onClick={clickHandler} >
       <img className="gallery-image-item" src={url} alt={title} />
       <figcaption>
         <p>{title}</p>
