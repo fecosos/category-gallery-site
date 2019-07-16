@@ -9,7 +9,12 @@ import { getGalleryItems } from './gallery';
 
 export const getSelectedCategory = get('category.selected');
 
-export const getCategoryById = (state, id) => get(`galleryItems.${id}.category`)(state);
+export const getCategoryById = (state, id) => {
+  const galleryItems = get('galleryItems')(state);
+  const category = get(`[${id}].category`)(galleryItems);
+
+  return category;
+}
 
 export const getSelectedCategoryItems = state => {
   const sliderItemId = get('slider.id')(state);
