@@ -1,5 +1,6 @@
 .Slider {
   .content {
+    transition: all 1s ease-in-out;
     height: calc(100% + 100px);
     overflow: auto;
   }
