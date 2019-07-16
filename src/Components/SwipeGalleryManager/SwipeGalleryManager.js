@@ -1,37 +1,55 @@
 import React from 'react';
+import get from 'lodash/get';
+
 import './SwipeGalleryManager.scss';
 
 const SwipeItem = props => {
-  return props.item.galleryImages.map((image, index) => (
+  if (get(props, 'item.galleryImages')) return props.item.galleryImages.map((image, index) => (
     <div className="SwipeItem" key={index} >
-      <img src={image} alt={props.item.year} />
+      <img src={image} alt={`${props.item.title} ${index + 1}`} />
     </div>
     )
   )
+
+  return null;
 }
 
-export default class SwipeGalleryManager extends React.Component {
-  _handleScroll(event) {
-    console.log(event);
+const NextItem = ({image}) => {
+  if(image) {
+    return (
+      <div className="NextItem">
+        <img src={image} alt={`Siguiente galeria`} />
+      </div>
+    );
   }
-  node = null;
 
-  componentDidMount() {
-    this.node.addEventListener('scroll', this._handleScroll);
+  return null;
+  
+};
+
+export default class SwipeGalleryManager extends React.Component {
+  state = {
+    currentItemIndex: 0
   }
   
-  componentWillUnmount() {
-    this.node.removeEventListener('scroll', this._handleScroll);
+  componentDidMount() {
   }
   
   render() {
     const { categoryItems} = this.props;
+    const { currentItemIndex } = this.state;
+    const currentItem = categoryItems[currentItemIndex];
+    
+    const isLastItem = categoryItems.length - 1 === currentItemIndex;
+    const nextImage = isLastItem ?
+      get(categoryItems[0], 'galleryImages', [])[0] :
+      get(categoryItems[currentItemIndex + 1], 'galleryImages', [])[0];
     
     return (
-      <div className="SwipeGalleryManager" ref={node => this.node = node} onDrag={a=> console.log('dag')} >
-        {categoryItems.map((item) => (
-          <SwipeItem item={item} key={item.title} />
-        ))}
+      <div id="SwipeGalleryManager" className="SwipeGalleryManager" >
+        <SwipeItem item={currentItem} />
+        <NextItem image={nextImage} />
+        {/* <button onClick={() => this.setState({})} ></button> */}
       </div>
     );
   }

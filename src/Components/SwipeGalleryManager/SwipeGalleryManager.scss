@@ -1,10 +1,10 @@
 .SwipeGalleryManager {
-  display: flex;
+  display: inline-flex;
   height: 100%;
-
-  .SwipeItem {
+  
+  .SwipeItem, .NextItem {
     padding-right: 25px;
-    height: 70%;
+    height: calc(100% - 50px);
 
     img {
       height: 100%; 
