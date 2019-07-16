@@ -22,14 +22,19 @@ const GalleryItem = ({ item, onClick, selectedCategory }) => {
   );
 };
 
-function Gallery({ items, setGalleryById, selectedCategory }) {
+function Gallery({ items, setGalleryById, selectedCategory, setCategoryOrder }) {
+  const galleryItemClickHandler = (id, category) => () => {
+    setGalleryById(id);
+    setCategoryOrder(category);
+  };
+  
   return (
     <div className="Gallery gallery-items">
       {items.map(item => (
         <GalleryItem
           selectedCategory={selectedCategory}
           key={item.id}
-          onClick={() => setGalleryById(item.id)}
+          onClick={galleryItemClickHandler(item.id, item.category)}
           item={item} />
       ))}
     </div>
