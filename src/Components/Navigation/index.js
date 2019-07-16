@@ -2,6 +2,7 @@ import Navigation from './Navigation';
 import { connect } from 'react-redux';
 import { setCategory } from '../../store/actions/category';
 import { getSelectedCategory } from '../../store/selectors/category';
+import { setGalleryById } from '../../store/actions/gallery'
 
 
 const mapStateToProps = state => ({
@@ -9,7 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  setCategory
+  setCategory,
+  setGalleryById
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
