@@ -15,9 +15,24 @@ aside {
   justify-content: space-between;
   position: fixed;
 
+  .logo-wrapper {
+    #logo {
+      width: 100px;
+    }
+  }
+
   nav {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    left: 0;
+    bottom: calc(50% + 15px);
+  }
+  .description {
+    position: absolute;
+    left: 0;
+    top: calc(50% + 10px);
+    transition: all .4s ease-in-out;
   }
 }
 

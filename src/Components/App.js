@@ -5,19 +5,36 @@ import pipe from 'lodash/fp/pipe';
 import Gallery from './Gallery';
 import Navigation from './Navigation';
 import Slider from './Slider';
+import Logo from '../assets/Logo';
+
+import { getSelectedSliderDescription, getIsSliderOpen } from '../store/selectors/slider'
+import { setCategory } from '../store/actions/category'
+import { setGalleryById } from '../store/actions/gallery'
+
 
 import SwipeGalleryManager from './SwipeGalleryManager';
 
 import './App.scss'
 
 
-const Logo = () => (
-  <div className="logo-wrapper">
-    <button>
-      <img className="logo-img" src='https://dummyimage.com/75x75.jpg?text=R' alt='Logo' />
-    </button>
-  </div>
-);
+const logoMapDispatchToProps = {
+  setCategory,
+  setGalleryById
+}
+const LogoWrapper = connect(null, logoMapDispatchToProps)(({ setCategory, setGalleryById}) => {
+  const clickHandler = () => {
+    setCategory(null);
+    setGalleryById(null);
+  }
+  return (
+    <div className="logo-wrapper">
+      <button onClick={clickHandler} >
+        {/* <img className="logo-img" src='https://dummyimage.com/75x75.jpg?text=R' alt='Logo' /> */}
+        <Logo />
+      </button>
+    </div>
+  )
+});
 
 const InstagramAnchor = () => (
   <div className="instagram-wrapper">
@@ -27,7 +44,7 @@ const InstagramAnchor = () => (
   </div>
 );
 
-function App({testState, galleryItems}) {
+function App({ description, isSilderOpen}) {
   const mainEl = useRef(null);
   const [columnWidth, setColumnWidth] = useState(0);
   const [mainWidth, setMainWidth] = useState(0);
@@ -37,22 +54,43 @@ function App({testState, galleryItems}) {
   const resizeHandler = useCallback(() => {
     setColumnWidth(mainEl);
     setMainWidth(mainEl.current.clientWidth);
-  }, [])
+  }, []);
+
+  const wheelHandler = useCallback((event) => {
+    if (isSilderOpen) {
+      console.log('wheel', event)
+      const slider = document.getElementById('slider-container');
+      slider.scrollLeft += 25;
+    }
+  }, [isSilderOpen]);
   
   useEffect(() => {
     setColumnWidthFromRef(mainEl);
     setMainWidth(mainEl.current.clientWidth);
     window.addEventListener('resize', resizeHandler);
+    // window.addEventListener('wheel', wheelHandler);
     
 
-    return () => window.removeEventListener('resize', resizeHandler);
-  }, [resizeHandler, columnWidth, setColumnWidthFromRef]);
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('wheel', wheelHandler);
+    }
+  }, [resizeHandler, wheelHandler, columnWidth, setColumnWidthFromRef]);
 
   return (
     <div className="App" >
       <aside style={{ width: columnWidth}}>
-        <Logo />
+        <LogoWrapper />
         <Navigation />
+        <div className={`description${isSilderOpen ? ' opacity-1': ' opacity-0'}`} >
+          <ul>
+            {
+              description.map((li, index) => {
+                return <li key={index}>{li}</li>
+              })
+            }
+          </ul>
+        </div>
         <InstagramAnchor />
       </aside>
       <main ref={mainEl} >
@@ -66,6 +104,8 @@ function App({testState, galleryItems}) {
 }
 
 const mapStateToProps = state => ({
+  description: getSelectedSliderDescription(state),
+  isSilderOpen: getIsSliderOpen(state)
 });
 
 const mapDispatchToProps = {
