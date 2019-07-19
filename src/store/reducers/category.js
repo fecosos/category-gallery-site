@@ -8,9 +8,18 @@ import {
 
 export default function(state = {}, action = {}) {
   if (action.type === SET_CATEGORY) {
+    if (action.category) {
+      return {
+        ...state,
+        selected: action.category,
+        navitemActive: true
+      };
+    }
+
     return {
       ...state,
-      selected: action.category
+      selected: action.category,
+      navitemActive: false
     };
   }
 

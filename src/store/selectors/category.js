@@ -9,6 +9,8 @@ import { getGalleryItems } from './gallery';
 
 export const getSelectedCategory = get('category.selected');
 
+export const getNavitemActive = get('category.navitemActive');
+
 export const getCategoryById = (state, id) => {
   const galleryItems = get('galleryItems')(state);
   const category = get(`[${id}].category`)(galleryItems);
