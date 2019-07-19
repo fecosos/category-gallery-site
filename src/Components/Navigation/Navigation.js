@@ -5,8 +5,26 @@ import {
   CATEGORY_VIVIENDAS,
   CATEGORY_BARES } from '../../store/constants';
 
-const NavItem = ({ title, selectedCategory, category, setCategory, setGalleryById }) => {
+const NavItem = ({
+  title,
+  selectedCategory,
+  navitemActive,
+  category,
+  setCategory,
+  setGalleryById
+}) => {  
   const renderWhenOpen = component => category && selectedCategory === category && component;
+  const isCategorySelected = () => {
+    if (navitemActive && selectedCategory === category) {
+      return true;
+    }
+
+    if (!navitemActive) {
+      return true;
+    }
+
+    return false;    
+  }
 
   const handleClick = () => setCategory(category);
   const handleClose = () => {
@@ -16,9 +34,9 @@ const NavItem = ({ title, selectedCategory, category, setCategory, setGalleryByI
   const handleSeeCategoryList = () => {
     console.log(category);
   }
-
+  
   return (
-    <li>
+    <li className={isCategorySelected() ? 'active' : 'not-active'} >
       {renderWhenOpen(
         <button onClick={handleClose} className="close-button" >
           x
@@ -29,7 +47,7 @@ const NavItem = ({ title, selectedCategory, category, setCategory, setGalleryByI
       </button>
       {renderWhenOpen(
         <button onClick={handleSeeCategoryList} className="list-button" >
-          Ver lista
+          ver lista
         </button>
       )}
     </li>
